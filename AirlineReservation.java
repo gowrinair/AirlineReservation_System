@@ -3,6 +3,8 @@ package Week2_Programs;
 import java.util.Scanner;
 
 public class AirlineReservation {
+
+	//parameter declaration
 	int persons;
 	String name[];
 	int age[];
@@ -12,7 +14,7 @@ public class AirlineReservation {
 	char coupon;
 	
 	
-	
+	//getters and setters for the parameters
 	public int getPersons() {
 		return persons;
 	}
@@ -79,6 +81,7 @@ public class AirlineReservation {
 
 	Scanner sc=new Scanner(System.in);
 	
+	//method airline for choice selection from user
 	void airline() {
 		
 		System.out.println("----Welcome to AirExpress------\n");
@@ -89,7 +92,8 @@ public class AirlineReservation {
 		
 			switch(choice) {
 			
-				case 1: System.out.println("SpiceJet : DELHI (20:05) ----> MUMBAI (22:05)  [4655/- per person]");	
+				case 1: //Selecting the top flight routes
+						System.out.println("SpiceJet : DELHI (20:05) ----> MUMBAI (22:05)  [4655/- per person]");	
 						System.out.println();
 						System.out.println("VISTARA  : MUMBAI (20:55)----> BANGLORE (22:40) [9266/- per person] ");
 						System.out.println();
@@ -99,22 +103,26 @@ public class AirlineReservation {
 						break;
 			
 						
-				case 2: System.out.println("Give your details for flight booking!");
+				case 2: //Entering details for booking flights
+						System.out.println("Give your details for flight booking!");
 						detailsForBooking();//details like flightNumber,PhoneNumber,Name,Age
 						break;
 						
 						
-				case 3: CalcTicketCost();// Calculating the ticket cost after getting details
+				case 3: //Ticket generation step
+						CalcTicketCost();// Calculating the ticket cost after getting details
 						ticketGeneration(); //printing of ticket
 						break;
 				
 						
-				case 4: System.out.println("\r\n"
+				case 4: //Displaying about AirExpress
+						System.out.println("\r\n"
 						+ "AirExpress is the flag carrier airline of India.\nHeadquartered at New Delhi.\nIt is owned by AirExpress Limited.\nA government-owned enterprise.");
 						break;
 						
-				case 5: System.out.println("15 Kgs per passenger Check-in Baggage included for your selected flight ");
-				        break;
+				case 5: //Displaying the baggage information
+						System.out.println("15 Kgs per passenger Check-in Baggage included for your selected flight ");
+				        	break;
 				        
 				default:System.out.println("Invalid Choice!");
 						break;
@@ -126,7 +134,9 @@ public class AirlineReservation {
 		while(ch=='Y'||ch=='y');
 		System.out.println("THANK YOU FOR CHOOSING US!!");
 	}
-	
+
+
+//ticket booking method	
  void detailsForBooking() {
 	System.out.println("Choose your flight: ");
 	System.out.println("101. SpiceJet : DELHI (20:05) ----> MUMBAI (22:05)  [4655/- per person]");	
@@ -168,9 +178,10 @@ public class AirlineReservation {
  
 
 
+//calculation of ticket cost
 double CalcTicketCost() {
 	switch(flightNo) {
-	case 101: if(coupon=='Y'||coupon=='y')
+	case 101: if(coupon=='Y'||coupon=='y')   //applying coupon or not
 				  totalCost=persons*(4655-350);
 	 		  else
 	 			  totalCost=persons*4655; 
@@ -191,6 +202,8 @@ double CalcTicketCost() {
 	
 }
 
+
+//printing tickets
 void ticketGeneration() {
 	System.out.println("Download your flight tickets now!");
 	System.out.println();
